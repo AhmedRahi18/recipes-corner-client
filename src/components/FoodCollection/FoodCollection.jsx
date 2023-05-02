@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 const FoodCollection = () => {
   return (
     <div>
-      <h2 className="text-center text-5xl font-serif my-10">Delicious Foods</h2>
+      <h2 className="text-center text-5xl font-bold mt-10">Best Collection Recipes</h2>
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="sm:flex sm:justify-between sm:items-center">
