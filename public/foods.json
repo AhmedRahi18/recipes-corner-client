@@ -1,0 +1,22 @@
+[
+  {   
+    "id": "1",
+    "type": "Vegetarian",
+    "name": "Palak Paneer, Chana Masala, Aloo Gobi, Baingan Bharta, Malai Kofta, Dal Makhani."
+  },
+  {
+    "id": "2",
+    "type": "Non-Vegetarian",
+    "name": "Chicken Tikka Masala, Grilled Salmon, Beef Stroganoff, Pork Chops, Shrimp Scampi, Tandoori Chicken, Lamb Curry"
+  },
+  {
+    "id": "3",
+    "type": "Sea-foods",
+    "name": "Fish Curry, Shrimp Biryani, Prawn Masala, Crab Curry, Lobster Masala, Fish Fry, Tandoori Prawns, Fried Calamari"
+  },
+  {
+    "id": "4",
+    "type": "Deserts",
+    "name": "Gulab Jamun, Jalebi, Kulfi, Ras Malai, Ladoo, Barfi, Kheer, Phirni, Gajar Ka Halwa."
+  }
+]

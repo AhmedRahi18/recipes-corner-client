@@ -1,10 +1,12 @@
 import React from 'react';
 import './Home.css'
 import chef from '../../../image/Lovepik_com-833581938-Cartoon cute chef cartoon character holding shovel.png'
+import FoodCollection from '../FoodCollection/FoodCollection';
+
 
 const Home = () => {
     return (
-        <div className='bg-sky-100'>
+        <div className=''>
             <div id='home' className='md:flex'>
             <div>
             <h1 className='font-serif text-5xl md:text-7xl md:ms-20 pt-20'>Recipes <br /> Corner </h1>
@@ -16,7 +18,7 @@ const Home = () => {
             <img className='invisible md:visible w-48 md:w-4/5' src={chef}/>
             </div>
             </div>
-
+            
         </div>
         
     );
