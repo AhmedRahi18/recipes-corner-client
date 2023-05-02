@@ -6,7 +6,7 @@ const ErrorPage = () => {
       <div>
         <h1 className="text-center font-bold text-3xl mt-20">Oops! Something went wrong :( </h1>
         <div>
-        <img className="w-1/3 ms-96" src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-1932.jpg?w=2000" alt="Error" />
+        <img className="w-2/4 ms-96" src="https://img.freepik.com/premium-vector/illustration-internet-connection-problem-concept-404-error-page-found-isolated-white-background-funny-pink-dinosaur-isolated-vector-illustration_450656-241.jpg?w=1060" alt="Error" />
         </div>
       </div>
     </div>
