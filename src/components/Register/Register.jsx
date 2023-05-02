@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
-    const {createUser,googleUser,githubUser} = useContext(AuthContext)
+    const {createUser,googleUser,githubUser,updateUser} = useContext(AuthContext)
     const [errors,setErrors] = useState('')
     const notify = () => toast.success('Successfully Register', {
         position: "top-center",
@@ -38,6 +38,7 @@ const Register = () => {
             const createdUser = result.user;
             console.log(createdUser)
             notify()
+            update(name,photo)
             form.reset()
         })
         .catch(error => {
@@ -68,6 +69,14 @@ const Register = () => {
         .catch(error => {
             console.log(error.message)
             setErrors(error.message)
+        })
+    }
+
+    const update = (name,photo)=>{
+        updateUser(name,photo)
+        .then()
+        .catch(error=>{
+            console.log(error)
         })
     }
 

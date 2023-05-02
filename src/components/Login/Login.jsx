@@ -100,7 +100,7 @@ const Login = () => {
         </form>
         </div>
         <div>
-        <img className=' w-2/5 absolute right-20 top-36' src="https://media.istockphoto.com/id/1312423107/vector/stealing-data-concept-flat-vector-illustration-online-registration-form-login-to-social.jpg?s=612x612&w=0&k=20&c=7Trftif8xV9FCDO5B4M7JiBpZUFlXo51m5lfI6hYCog=" alt="" />
+        <img className=' w-2/5 absolute right-20 top-44' src="https://media.istockphoto.com/id/1312423107/vector/stealing-data-concept-flat-vector-illustration-online-registration-form-login-to-social.jpg?s=612x612&w=0&k=20&c=7Trftif8xV9FCDO5B4M7JiBpZUFlXo51m5lfI6hYCog=" alt="" />
         </div>
         <ToastContainer/>
         </div>

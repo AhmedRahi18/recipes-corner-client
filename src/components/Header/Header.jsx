@@ -5,8 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
   const {user,logOut} = useContext(AuthContext)
-  const photo = user.photoURL;
-  console.log(photo)
+  
   const handleLogOut =()=>{
     logOut()
     .then()
@@ -23,14 +22,10 @@ const Header = () => {
         <div className="flex flex-col md:flex-row">
             <Link className="font-semibold hover:bg-sky-300 hover:delay-150 hover:transition px-4 py-2 rounded transition-colors duration-300 transform" to="/">Home</Link>
             <Link className="font-semibold hover:bg-sky-300 hover:delay-150 hover:transition px-4 py-2 rounded transition-colors duration-300 transform" to="/blog">Blog</Link>
-            {photo?(
-              <img className="w-20" src={photo} alt="" />
-            ) : (
-              <FaUserCircle className="text-white" style={{fontSize: "2.3rem"}}></FaUserCircle>
-            )
-          }
-            {user? (
+            {user? (<div className="flex">
+              {user.photoURL&&<img title={user?.displayName} className="w-10 rounded-full" src={user?.photoURL} alt="" />}
               <button onClick={handleLogOut} className="px-5 py-1 font-semibold bg-sky-500 text-white rounded ms-2">Logout</button>
+            </div>
             ) : (
               <Link to="/login"><button className="px-5 py-2 font-semibold bg-sky-500 text-white rounded ">Login</button></Link>
             )
