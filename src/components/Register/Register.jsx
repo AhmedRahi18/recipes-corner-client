@@ -2,10 +2,21 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle, FaUserPlus } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser,googleUser,githubUser} = useContext(AuthContext)
     const [errors,setErrors] = useState('')
+    const notify = () => toast.success('Successfully Register', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
 
     const handleRegister = event => {
         event.preventDefault()
@@ -17,15 +28,16 @@ const Register = () => {
         const password = form.password.value;
         console.log(name,photo,email,password)
 
+        if(password.length < 6){
+            setErrors('Your password is less then 6 characters')
+            return
+        }
         
         createUser(email,password)
         .then(result => {
             const createdUser = result.user;
-            if(password < 7){
-                setErrors('Your password is less then 6 characters')
-                return
-            }
             console.log(createdUser)
+            notify()
             form.reset()
         })
         .catch(error => {
@@ -33,7 +45,32 @@ const Register = () => {
             setErrors(error.message)
         })
     }
+    const handleGoogle = () => {
+        googleUser()
+        .then(result => {
+            const createdGoogle = result.user;
+            notify()
+            console.log(createdGoogle)
+        })
+        .catch(error => {
+            console.log(error.message)
+            setErrors(error.message)
+        })
+    }
     
+    const handleGithub = () => {
+        githubUser()
+        .then(result => {
+            const createdGithub = result.user;
+            notify()
+            console.log(createdGithub)
+        })
+        .catch(error => {
+            console.log(error.message)
+            setErrors(error.message)
+        })
+    }
+
     return (
         <div className='flex bg-sky-50'>
             <div>
@@ -54,14 +91,15 @@ const Register = () => {
         <fieldset className="border-t border-slate-300 mt-4 mb-6">
         <legend className="mx-auto px-4">Or</legend>
         </fieldset>
-        <p className='text-center border border-slate-300 rounded-xl p-2 mb-2'> <FaGoogle size ='28' className='absolute ms-5 text-sky-500'></FaGoogle> Continue with Google</p>
-        <p className='text-center border border-slate-300 rounded-xl p-2'> <FaGithub size ='28' className='absolute ms-5'></FaGithub> Continue with Github</p>
+        <p onClick={handleGoogle} className='text-center border border-slate-300 rounded-xl p-2 mb-2'> <FaGoogle size ='28' className='absolute ms-5 text-sky-500'></FaGoogle> Continue with Google</p>
+        <p onClick={handleGithub} className='text-center border border-slate-300 rounded-xl p-2'> <FaGithub size ='28' className='absolute ms-5'></FaGithub> Continue with Github</p>
         </div>
         </form>
         </div>
         <div>
         <img className=' w-2/5 absolute right-20 top-40' src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg" alt="" />
         </div>
+        <ToastContainer/>
         </div>
         
     );

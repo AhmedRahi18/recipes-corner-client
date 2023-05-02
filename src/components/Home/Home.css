@@ -1,6 +1,6 @@
 #home{
 width: 100%;
-height: 70vh;
+height: 80vh;
 background-image:linear-gradient(to bottom, rgba(190, 233, 255, 0.43), rgba(0, 0, 0, 0.93)), url('https://images.unsplash.com/photo-1516001784377-938d72d1e4ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80');
 object-fit: cover;
 background-size: cover;
