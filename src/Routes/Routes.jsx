@@ -6,6 +6,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import ChefsData from "../components/ChefsData/ChefsData";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/chefsData/:id',
+        element: <PrivateRoute><ChefsData></ChefsData></PrivateRoute>,
+        loader: ({params}) => fetch(`https://recipes-corner-server-ahmedrahi18.vercel.app/chefsData/${params.id}`)
       },
       {
         path: '*',

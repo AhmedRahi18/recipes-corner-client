@@ -4,14 +4,12 @@ import icon from '../../../image/meatball.png'
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 mt-32 bg-sky-200 text-base-content">
+      <footer className="footer p-3 md:p-10 mt-32 flex justify-around bg-sky-200 text-base-content">
         <div>
           <img className="w-20" src={icon} alt="" />
-          <p className="font-bold">
-            Recipes Corner
-            <br />
-            Best Recipe Website From 2020
-          </p>
+          <p className="font-extrabold text-xl">
+            Recipes Corner</p>
+            <p className="font-semibold">Best Recipe Website From 2020</p>
         </div>
         <div>
           <span className="font-bold text-xl">Services</span>

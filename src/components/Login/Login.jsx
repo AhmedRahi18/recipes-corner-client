@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle, FaUserCheck } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,6 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const {loginUser,googleUser,githubUser} = useContext(AuthContext)
     const [errors, setErrors] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
+    
+    const from = location.state?.from?.pathname
+
     const notify = () => toast.success('Successfully Login', {
         position: "top-center",
         autoClose: 3000,
@@ -30,7 +35,7 @@ const Login = () => {
         loginUser(email,password)
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser)
+            navigate(from,{replace: true})
             notify()
             form.reset()
         })
@@ -75,12 +80,6 @@ const Login = () => {
             <h2 className='text-2xl font-serif ps-6 pt-6 pb-0 mb-2'><FaUserCheck/> Login</h2>
             <input className='m-5 border-b w-72 pb-2 border-slate-400 p-2' type="email" name='email' placeholder='Username or email' required/>
             <input className='m-5 border-b w-72 pb-2 border-slate-400 p-2' type="password" name='password' placeholder='Password' required/>
-            <br />
-            <div className='flex justify-between'>
-            <div>
-            <input className='ms-5' type="checkbox"/> Remember Me
-            </div>
-            </div>
             <div className='text-center p-10'>
             <p className='text-center text-red-500'>{errors}</p>
             <button type='submit' className='bg-sky-400 text-white font-serif px-40 py-2 rounded'>Login</button>
