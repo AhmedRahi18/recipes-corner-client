@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const ChefsCard = ({ chef }) => {
-  const { chefName, chefPicture, id, likes, numRecipes, yearsExperience } =
-    chef;
+  const { chefName, chefPicture, id, likes, numRecipes, yearsExperience } = chef
+
   return (
     <div>
       <div className="card w-96 bg-gradient-to-r from-sky-100 to-blue-200 shadow-lg">  

@@ -18,7 +18,7 @@ const Home = () => {
         <div className='bg-sky-50'>
             <div id='home' className='md:flex'>
             <div>
-            <h1 className='font-serif text-5xl md:text-7xl md:ms-20 pt-20'>Recipes <br /> Corner </h1>
+            <h1 className='font-serif text-5xl md:text-7xl md:ms-20 pt-20'>Recipes <br /> <span className='text-sky-500'>Corner</span> </h1>
             <p className='w-3/4 md:ms-20 text-slate-200'>Our recipe website is a great resource for professional chefs who are looking for inspiration and new ideas to incorporate into their menus. Our community of passionate food bloggers and chefs contribute their unique and creative recipes, making our website a hub of culinary creativity and innovation. Whether you're a home cook or a professional chef, our website offers something for everyone, from classic comfort foods to cutting-edge culinary trends.</p> 
             <button className="bg-gradient-to-r from-sky-400 to-blue-500 rounded px-5 py-1 text-white font-serif mb-5
              mt-2 ms-20"> Read More</button>
