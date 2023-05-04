@@ -1,11 +1,30 @@
 import React from "react";
 
 const Blog = () => {
+  
+  const onButtonClick = () => {
+       
+    fetch('PDF.pdf').then(response => {
+        response.blob().then(blob => {
+            // Creating new object of PDF file
+            const fileURL = window.URL.createObjectURL(blob);
+            // Setting various property values
+            let alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'React-to-PDF.pdf';
+            alink.click();
+        })
+    })
+  }
+
   return (
     <div className="bg-sky-50 pb-36">
       <h2 className="text-4xl font-bold text-center pt-10 mb-5">
         Some Important Question Answer
       </h2>
+      <div className="text-end me-20">
+      <button onClick={onButtonClick} className="bg-gradient-to-r from-sky-400 to-blue-500 rounded px-5 py-1 text-white font-serif mb-5 mt-2 ms-20">Download pdf</button>
+      </div>
       <div
         tabIndex={0}
         className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mx-20 mb-3">

@@ -8,15 +8,13 @@ const ChefsCard = ({ chef }) => {
     chef;
   return (
     <div>
-      <div className="card w-96 bg-gradient-to-r from-sky-100 to-blue-200 shadow-lg">
-        <figure>
+      <div className="card w-96 bg-gradient-to-r from-sky-100 to-blue-200 shadow-lg">  
           <LazyLoadImage
-          delayTime={1000}
+          delayTime={3000}
           loading="lazy"
           src={chefPicture}
           >
           </LazyLoadImage>
-        </figure>
         <div className="card-body">
           <h2 className="text-xl font-extrabold">{chefName}</h2>
           <div className="">
