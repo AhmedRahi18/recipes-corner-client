@@ -8,7 +8,7 @@ const Main = () => {
         <div className='bg-sky-50'>
             <Header></Header>
             <Outlet></Outlet>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };
