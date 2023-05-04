@@ -1,10 +1,12 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 const ChefsData = () => {
   const chefsInfo = useLoaderData();
-  const {chefName, chefPicture, likes, numRecipes, yearsExperience,shortBio} = chefsInfo
+  const {chefName, chefPicture, likes, numRecipes, yearsExperience,shortBio,recipes} = chefsInfo
+  const allRecipes = chefsInfo.recipes
   return (
     <div>
       <div className="bg-cover h-2/3 bg-gradient-to-r from-sky-800 via-sky-600 to-blue-500 ">
@@ -25,6 +27,16 @@ const ChefsData = () => {
       </div>
       <h2 className="text-4xl text-center text-black font-bold mt-10 mb-2">Chef Recipes</h2>
       <p className="text-center text-md font-semibold text-slate-600 mb-16">Here You Can Find Some Best Recipes From Our Chef !!!</p>
+
+      <div className="mt-16 grid grid-cols-1 gap-5">
+        {
+          allRecipes.map((recipe,index) => <RecipeCard
+          key={index}
+          recipe={recipe}
+          ></RecipeCard>)
+        }
+      </div>
+      
     </div>
   );
 };

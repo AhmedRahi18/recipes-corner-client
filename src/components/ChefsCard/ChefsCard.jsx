@@ -8,7 +8,7 @@ const ChefsCard = ({ chef }) => {
     chef;
   return (
     <div>
-      <div className="card w-96 bg-gradient-to-r from-sky-100 to-blue-200 shadow-xl">
+      <div className="card w-96 bg-gradient-to-r from-sky-100 to-blue-200 shadow-lg">
         <figure>
           <LazyLoadImage
           delayTime={1000}
