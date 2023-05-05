@@ -1,19 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Home.css'
 import chef from '../../../image/Lovepik_com-833581938-Cartoon cute chef cartoon character holding shovel.png'
 import FoodCollection from '../FoodCollection/FoodCollection';
 import GetFood from '../GetFood/GetFood';
 import ChefsCard from '../ChefsCard/ChefsCard';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ClipLoader } from 'react-spinners';
 
 const Home = () => {
+    const [loading,setLoading] = useState(true)
     const [chefs,setChefs] = useState([])
 
     useEffect(()=>{
         fetch('https://recipes-corner-server-ahmedrahi18.vercel.app/chefsData')
         .then(res => res.json())
         .then(data => setChefs(data))
+        setLoading(false)
     },[])
-
+    // loader
+    if(loading){
+        return <div className='text-center mt-52'>
+        <ClipLoader
+        loading={loading}
+        size={50}/>
+        </div>
+    }
     return (
         <div className='bg-sky-50'>
             <div id='home' className='md:flex'>

@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const ChefsCard = ({ chef }) => {
   const { chefName, chefPicture, id, likes, numRecipes, yearsExperience } = chef
+  const {loading} = useContext(AuthContext)
+  if(loading){
+    return <div className='text-center mt-52'>
+    <ClipLoader
+    loading={loading}
+    size={100}/>
+    </div>
+  }
 
   return (
     <div>

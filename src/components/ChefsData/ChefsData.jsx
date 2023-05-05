@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import RecipeCard from "../RecipeCard/RecipeCard";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ClipLoader } from "react-spinners";
 
 const ChefsData = () => {
   const chefsInfo = useLoaderData();
   const {chefName, chefPicture, likes, numRecipes, yearsExperience,shortBio} = chefsInfo
   const allRecipes = chefsInfo.recipes
+  const {loading} = useContext(AuthContext)
+  if(loading){
+    return <div className='text-center mt-52'>
+    <ClipLoader
+    loading={loading}
+    size={100}/>
+    </div>
+  }
   return (
     <div>
       <div className="bg-cover h-2/3 bg-gradient-to-r from-sky-800 via-sky-600 to-blue-500 ">
